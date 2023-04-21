@@ -1,0 +1,36 @@
+﻿@model IEnumerable<BykeSellingOnlinePlatefrom.Models.Model>
+@{
+    ViewData["Title"] = "Model";
+}
+
+<div class="row">
+    <div class="col-6 ">
+        <h2 class="text-primary align-content-center floa">Byke Models Informations</h2>
+    </div>
+    <div class="col-6">
+        <a class="btn btn-primary float-end m-lg-4" asp-action="Create"><i class="fa fa-motorcycle" aria-hidden="true"></i> &nbsp; Add Model</a>
+    </div>
+</div>
+<div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(n=>n.Make)</th>
+              <th>@Html.DisplayNameFor(b=>b.Name)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Make.Name</td>
+                    <td>@item.Name</td>
+                    <partial name="_TablebuttonPartial" model="@item.Id"></partial>
+                </tr>
+            }
+          
+        </tbody>
+    </table>
+</div>
+
